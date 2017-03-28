@@ -25,6 +25,16 @@
       hello,
       document.getElementById('app')
     );
+
+    setTimeout(
+      () => {
+        ReactDOM.render(
+          React.createElement(Hello, { name: 'World!!!' }),
+          document.getElementById('app')
+        );
+      },
+      1000
+    );
   </script>
 </body>
 </html>
