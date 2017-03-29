@@ -50,8 +50,38 @@
       }
     }
 
+    // Segunda manera de hacer componentes usando PureComponent 
+    // Renderiza si hay un cambio detectado. Usar solo en el componente final
+    class MyComponent2 extends React.PureComponent  {
+      constructor (props) {
+        super(props);
+
+        this.state = {
+          count: 0,
+        };
+
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      handleClick() {
+        this.setState({
+          count: this.state.count + 1,
+        });
+      }
+
+      // Metodo obligatorio
+      render() {
+        const name = this.props.name;
+        return (
+          <h1 id="Title" onClick={this.handleClick}>
+            Hello {name} {this.state.count}
+          </h1>
+        );
+      }
+    }
+
     ReactDOM.render(
-      <MyComponent name="World"/>,
+      <MyComponent2 name="World"/>,
       document.getElementById('app')
     );
   </script>
